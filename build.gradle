@@ -1,0 +1,58 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
+buildscript {
+    repositories {
+//        google()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+        maven { url 'http://s3.amazonaws.com/fabric-artifacts/public' }
+        maven { url 'https://dl.bintray.com/aweme-open-sdk-team/public' }
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
+        // 魅族
+        maven {url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'}
+        maven {
+            url 'http://artifactory.rnd.meizu.com/artifactory/libs-debug-local'
+        }
+        maven {
+            url 'http://artifactory.rnd.meizu.com/artifactory/all'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+    }
+}
+
+allprojects {
+    repositories {
+//        google()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+        maven { url 'http://s3.amazonaws.com/fabric-artifacts/public' }
+        maven { url 'https://dl.bintray.com/aweme-open-sdk-team/public' }
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
+        // 魅族
+        maven {url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'}
+        maven{
+            url 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+        maven {
+            url 'http://artifactory.rnd.meizu.com/artifactory/libs-debug-local'
+        }
+        maven {
+            url 'http://artifactory.rnd.meizu.com/artifactory/all'
+        }
+        mavenCentral()
+    }
+}

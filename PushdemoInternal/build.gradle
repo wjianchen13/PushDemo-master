@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+//def appId = project.getProperties().get("APP_ID") ?:"100999"
+//def appKey = project.getProperties().get("APP_KEY") ?: "80355073480594a99470dcacccd8cf2c"
+//def appPackageName = project.getProperties().get("PACKAGE_NAME")?:"com.meizu.pushdemo"
+
+def appId = project.getProperties().get("APP_ID") ?:"118729"
+def appKey = project.getProperties().get("APP_KEY") ?: "12909e14c06642e08df8a82a842b6456"
+def appPackageName = project.getProperties().get("PACKAGE_NAME")?:"com.lokinfo.android.gamemarket.mmshow"
+
+println("appID = ${appId} appKey = ${appKey} appPackageName = ${appPackageName}")
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'meizupush'
+            keyPassword '123456'
+            storeFile file('../meizupushdemo.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
+    defaultConfig {
+        applicationId appPackageName
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 410
+        versionName "4.1.0"
+        manifestPlaceholders = [APP_ID: appId, APP_KEY: appKey, PACKAGE_NAME: appPackageName]
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation(group: 'com.meizu.flyme.internet', name: 'push-internal', version: '4.1.0', ext: 'aar')
+//    implementation project(':push-internal-publish')
+}

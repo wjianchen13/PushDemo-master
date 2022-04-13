@@ -1,0 +1,4 @@
+include ':PushdemoInternal'
+
+//include(':push-internal-publish')
+//project(':push-internal-publish').projectDir = new File(settingsDir, '../MzPushSdk/library')
